@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private bool isMoving;
     private Vector2 input;
     private Animator animator;
+    public LayerMask solidBGLayer;
+    public LayerMask interactableLayer;
 
     private void Awake()
     {
@@ -21,8 +23,8 @@ public class PlayerController : MonoBehaviour
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
-            Debug.Log("This is input.x" + input.x);
-            Debug.Log("This is input.y" + input.y);
+            // Debug.Log("This is input.x" + input.x);
+            // Debug.Log("This is input.y" + input.y);
 
             if(input.x != 0) input.y = 0;
 
@@ -35,11 +37,32 @@ public class PlayerController : MonoBehaviour
                 targetPos.x += input.x;
                 targetPos.y += input.y;
 
+                if(IsWalkable(targetPos))
+
                 StartCoroutine(Move(targetPos));
             }
         }
 
         animator.SetBool("isMoving", isMoving);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Interact();
+        }
+    }
+
+    void Interact()
+    {
+        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+        var interactPos = transform.position + facingDir;
+
+        Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
+
+        var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
+        if(collider != null)
+        {
+            Debug.Log("there is an NPC here!");
+        }
     }
 
     IEnumerator Move(Vector3 targetPos)
@@ -53,5 +76,14 @@ public class PlayerController : MonoBehaviour
         transform.position = targetPos;
 
         isMoving = false;
+    }
+
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if(Physics2D.OverlapCircle(targetPos, 0.2f, solidBGLayer | interactableLayer) != null)
+        {
+            return false;
+        }
+        return true;
     }
 }
