@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if(!isMoving)
         {
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
         if(collider != null)
         {
-            Debug.Log("there is an NPC here!");
+            collider.GetComponent<Interactable>()?.Interact();
         }
     }
 
