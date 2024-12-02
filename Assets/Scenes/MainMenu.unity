@@ -351,8 +351,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 821846008}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 821846011}
+        m_TargetAssemblyTypeName: Scene, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 821846007}
   - component: {fileID: 821846010}
   - component: {fileID: 821846009}
-  - component: {fileID: 821846008}
+  - component: {fileID: 821846011}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -523,18 +523,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &821846008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821846006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95a0c5b79964cc448f6b5f04233c212, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &821846009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +561,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821846006}
   m_CullTransparentMesh: 1
+--- !u!114 &821846011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821846006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e064fca96ea4d8a429cf5634e64eba8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917094742
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,8 +924,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 821846008}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 821846011}
+        m_TargetAssemblyTypeName: Scene, Assembly-CSharp
         m_MethodName: GoToScene
         m_Mode: 5
         m_Arguments:
