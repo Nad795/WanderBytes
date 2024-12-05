@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IInteractable
 {
@@ -10,6 +11,11 @@ public class Player : MonoBehaviour, IInteractable
     private Animator animator;
     public LayerMask solidBGLayer;
     public LayerMask interactableLayer;
+    public LayerMask mine1Layer;
+    public LayerMask mine2Layer;
+    public LayerMask mine3Layer;
+    public LayerMask mine4Layer;
+    public LayerMask mine5Layer;
 
     private void Awake()
     {
@@ -38,8 +44,9 @@ public class Player : MonoBehaviour, IInteractable
                 targetPos.y += input.y;
 
                 if(IsWalkable(targetPos))
-
-                StartCoroutine(Move(targetPos));
+                {
+                    StartCoroutine(Move(targetPos));
+                }
             }
         }
 
@@ -76,6 +83,8 @@ public class Player : MonoBehaviour, IInteractable
         transform.position = targetPos;
 
         isMoving = false;
+
+        ChangeScene();
     }
 
     private bool IsWalkable(Vector3 targetPos)
@@ -85,5 +94,34 @@ public class Player : MonoBehaviour, IInteractable
             return false;
         }
         return true;
+    }
+
+    private void ChangeScene()
+    {
+        if(Physics2D.OverlapCircle(transform.position, 0.01f, mine1Layer) != null)
+        {
+            Debug.Log("PINDAH RUANGAN WOY!!!");
+            SceneManager.LoadScene("Mine Vampire");
+        }
+        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine2Layer) != null)
+        {
+            Debug.Log("PINDAH RUANGAN WOY!!!");
+            SceneManager.LoadScene("Mine 2");
+        }
+        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine3Layer) != null)
+        {
+            Debug.Log("PINDAH RUANGAN WOY!!!");
+            SceneManager.LoadScene("Mine 3");
+        }
+        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine4Layer) != null)
+        {
+            Debug.Log("PINDAH RUANGAN WOY!!!");
+            SceneManager.LoadScene("Mine 4");
+        }
+        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine5Layer) != null)
+        {
+            Debug.Log("PINDAH RUANGAN WOY!!!");
+            SceneManager.LoadScene("Mine 5");
+        }
     }
 }
