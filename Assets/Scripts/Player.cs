@@ -16,6 +16,7 @@ public class Player : MonoBehaviour, IInteractable
     public LayerMask mine3Layer;
     public LayerMask mine4Layer;
     public LayerMask mine5Layer;
+    public LayerMask houseLayer;
 
     private void Awake()
     {
@@ -122,6 +123,11 @@ public class Player : MonoBehaviour, IInteractable
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Mine 5");
+        }
+        else if(Physics2D.OverlapCircle(transform.position, 0.01f, houseLayer) != null)
+        {
+            Debug.Log("PINDAH RUANGAN WOY!!!");
+            SceneManager.LoadScene("Rumah");
         }
     }
 }
