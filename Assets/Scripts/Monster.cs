@@ -46,6 +46,12 @@ public class Monster : MonoBehaviour, IInteractable
     private void Die()
     {
         Debug.Log($"{monsterName} telah mati!");
-        Destroy(gameObject); 
+        Destroy(gameObject);
+
+        MineManager mineManager = FindObjectOfType<MineManager>();
+        if (mineManager != null)
+        {
+            mineManager.MonsterDefeated();
+        }
     }
 }

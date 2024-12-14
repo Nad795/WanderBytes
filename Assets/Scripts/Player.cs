@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Wanderbytes;
 
 public class Player : MonoBehaviour, IInteractable
 {
@@ -135,28 +136,63 @@ public class Player : MonoBehaviour, IInteractable
     {
         if (Physics2D.OverlapCircle(transform.position, 0.01f, mine1Layer) != null)
         {
-            Debug.Log("PINDAH RUANGAN WOY!!!");
-            SceneManager.LoadScene("Mine Vampire");
+            if (!Wanderbytes.GameState.Instance.IsMineCompleted("Mine Vampire"))
+            {
+                Debug.Log("Memasuki Mine Vampire...");
+                SceneManager.LoadScene("Mine Vampire");
+            }
+            else
+            {
+                Debug.Log("Mine Vampire sudah selesai, Anda tidak bisa masuk lagi.");
+            }
         }
         else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine2Layer) != null)
         {
-            Debug.Log("PINDAH RUANGAN WOY!!!");
-            SceneManager.LoadScene("Mine 2");
+            if (!Wanderbytes.GameState.Instance.IsMineCompleted("Mine 2"))
+            {
+                Debug.Log("Memasuki Mine Dragon...");
+                SceneManager.LoadScene("Mine 2");
+            }
+            else
+            {
+                Debug.Log("Mine Dragon sudah selesai, Anda tidak bisa masuk lagi.");
+            }
         }
         else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine3Layer) != null)
         {
-            Debug.Log("PINDAH RUANGAN WOY!!!");
-            SceneManager.LoadScene("Mine 3");
+            if (!Wanderbytes.GameState.Instance.IsMineCompleted("Mine 3"))
+            {
+                Debug.Log("Memasuki Mine Babi Ngepet...");
+                SceneManager.LoadScene("Mine 3");
+            }
+            else
+            {
+                Debug.Log("Mine Babi Ngepet sudah selesai, Anda tidak bisa masuk lagi.");
+            }
         }
         else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine4Layer) != null)
         {
-            Debug.Log("PINDAH RUANGAN WOY!!!");
-            SceneManager.LoadScene("Mine 4");
+            if (!Wanderbytes.GameState.Instance.IsMineCompleted("Mine 4"))
+            {
+                Debug.Log("Memasuki Mine Demon...");
+                SceneManager.LoadScene("Mine 4");
+            }
+            else
+            {
+                Debug.Log("Mine Demon sudah selesai, Anda tidak bisa masuk lagi.");
+            }
         }
         else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine5Layer) != null)
         {
-            Debug.Log("PINDAH RUANGAN WOY!!!");
-            SceneManager.LoadScene("Mine 5");
+            if (!Wanderbytes.GameState.Instance.IsMineCompleted("Mine 5"))
+            {
+                Debug.Log("Memasuki Mine Boss...");
+                SceneManager.LoadScene("Mine 5");
+            }
+            else
+            {
+                Debug.Log("Mine Boss sudah selesai, Anda tidak bisa masuk lagi.");
+            }
         }
         else if (Physics2D.OverlapCircle(transform.position, 0.01f, houseLayer) != null)
         {
