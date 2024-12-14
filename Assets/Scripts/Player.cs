@@ -75,14 +75,37 @@ public class Player : MonoBehaviour, IInteractable
         var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
         if (collider != null)
         {
+            // Cek apakah collider adalah Monster
             Monster monster = collider.GetComponent<Monster>();
-            int playerAttackDamage = 50; 
-            Debug.Log($"Player menyerang {monster.monsterName} dengan {playerAttackDamage} damage!");
-            monster.TakeDamage(playerAttackDamage);
+            if (monster != null)
+            {
+                int playerAttackDamage = 50;
+                Debug.Log($"Player menyerang {monster.monsterName} dengan {playerAttackDamage} damage!");
+                monster.TakeDamage(playerAttackDamage);
 
-            monster.Attack(this); 
+                monster.Attack(this);
+            }
+            else
+            {
+                // Cek apakah collider adalah Bed (kasur)
+                Bed bed = collider.GetComponent<Bed>();
+                if (bed != null)
+                {
+                    Debug.Log("Player sedang beristirahat di kasur!");
+                    bed.Interact();
+                }
+                else
+                {
+                    Debug.Log("Tidak ada objek yang bisa diinteraksi.");
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Tidak ada objek di depan player.");
         }
     }
+
 
     IEnumerator Move(Vector3 targetPos)
     {
@@ -162,5 +185,11 @@ public class Player : MonoBehaviour, IInteractable
     {
         Debug.Log("Player telah mati!");
         // Tambahkan logika game over di sini
+    }
+
+    public void ResetHP()
+    {
+        currentHP = maxHP; 
+        Debug.Log("Player telah beristirahat dan HP telah dipulihkan!");
     }
 }

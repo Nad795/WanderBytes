@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 131340295}
   - component: {fileID: 131340294}
   - component: {fileID: 131340293}
+  - component: {fileID: 131340297}
   m_Layer: 8
   m_Name: Vampire 2
   m_TagString: Untagged
@@ -256,6 +257,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &131340297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131340292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Vampire A
+  maxHP: 100
+  currentHP: 100
+  attackDamage: 10
 --- !u!1 &317020349
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +346,7 @@ GameObject:
   - component: {fileID: 333721945}
   - component: {fileID: 333721944}
   - component: {fileID: 333721943}
+  - component: {fileID: 333721947}
   m_Layer: 8
   m_Name: Vampire 1
   m_TagString: Untagged
@@ -450,6 +468,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &333721947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333721942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Vampire B
+  maxHP: 100
+  currentHP: 100
+  attackDamage: 10
 --- !u!1 &507336477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1438,7 @@ GameObject:
   - component: {fileID: 1412849246}
   - component: {fileID: 1412849245}
   - component: {fileID: 1412849244}
+  - component: {fileID: 1412849248}
   m_Layer: 8
   m_Name: Vampire 3
   m_TagString: Untagged
@@ -1525,6 +1560,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1412849248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412849243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Vampire C
+  maxHP: 100
+  currentHP: 100
+  attackDamage: 10
 --- !u!1 &2100341989
 GameObject:
   m_ObjectHideFlags: 0
