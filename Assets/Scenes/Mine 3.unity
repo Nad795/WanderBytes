@@ -1043,6 +1043,8 @@ MonoBehaviour:
   houseLayer:
     serializedVersion: 2
     m_Bits: 16384
+  maxHP: 1000
+  currentHP: 0
 --- !u!1 &790518189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1103,7 @@ GameObject:
   - component: {fileID: 1075300992}
   - component: {fileID: 1075300991}
   - component: {fileID: 1075300990}
+  - component: {fileID: 1075300994}
   m_Layer: 8
   m_Name: Babi Ngepet 3
   m_TagString: Untagged
@@ -1116,7 +1119,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075300989}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1222,6 +1225,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1075300994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075300989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Babi Ngepet A
+  maxHP: 125
+  currentHP: 125
+  attackDamage: 15
 --- !u!1 &1215015150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,6 +1253,7 @@ GameObject:
   - component: {fileID: 1215015151}
   - component: {fileID: 1215015154}
   - component: {fileID: 1215015153}
+  - component: {fileID: 1215015155}
   m_Layer: 8
   m_Name: Babi Ngepet 1
   m_TagString: Untagged
@@ -1316,7 +1336,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215015150}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1355,6 +1375,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1919932, y: 1.6727426}
   m_EdgeRadius: 0
+--- !u!114 &1215015155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215015150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Babi Ngepet B
+  maxHP: 125
+  currentHP: 125
+  attackDamage: 15
 --- !u!1 &1228577894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,6 +1434,7 @@ GameObject:
   - component: {fileID: 1316227730}
   - component: {fileID: 1316227729}
   - component: {fileID: 1316227728}
+  - component: {fileID: 1316227732}
   m_Layer: 8
   m_Name: Babi Ngepet 2
   m_TagString: Untagged
@@ -1413,7 +1450,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316227727}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1519,6 +1556,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1316227732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316227727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Babi Ngepet C
+  maxHP: 125
+  currentHP: 125
+  attackDamage: 15
 --- !u!1 &2100341989
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,24 +18,29 @@ public class Player : MonoBehaviour, IInteractable
     public LayerMask mine5Layer;
     public LayerMask houseLayer;
 
+    public int maxHP = 500; 
+    public int currentHP; 
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        currentHP = maxHP; 
+    }
+
     public void HandleUpdate()
     {
-        if(!isMoving)
+        if (!isMoving)
         {
             input.x = Input.GetAxisRaw("Horizontal");
             input.y = Input.GetAxisRaw("Vertical");
 
-            // Debug.Log("This is input.x" + input.x);
-            // Debug.Log("This is input.y" + input.y);
+            if (input.x != 0) input.y = 0;
 
-            if(input.x != 0) input.y = 0;
-
-            if(input != Vector2.zero)
+            if (input != Vector2.zero)
             {
                 animator.SetFloat("moveX", input.x);
                 animator.SetFloat("moveY", input.y);
@@ -44,7 +49,7 @@ public class Player : MonoBehaviour, IInteractable
                 targetPos.x += input.x;
                 targetPos.y += input.y;
 
-                if(IsWalkable(targetPos))
+                if (IsWalkable(targetPos))
                 {
                     StartCoroutine(Move(targetPos));
                 }
@@ -53,7 +58,7 @@ public class Player : MonoBehaviour, IInteractable
 
         animator.SetBool("isMoving", isMoving);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Interact();
         }
@@ -67,16 +72,21 @@ public class Player : MonoBehaviour, IInteractable
         Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
 
         var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
-        if(collider != null)
+        if (collider != null)
         {
-            collider.GetComponent<Interactable>()?.Interact();
+            Monster monster = collider.GetComponent<Monster>();
+            int playerAttackDamage = 50; 
+            Debug.Log($"Player menyerang {monster.monsterName} dengan {playerAttackDamage} damage!");
+            monster.TakeDamage(playerAttackDamage);
+
+            monster.Attack(this); 
         }
     }
 
     IEnumerator Move(Vector3 targetPos)
     {
         isMoving = true;
-        while((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
             yield return null;
@@ -90,7 +100,7 @@ public class Player : MonoBehaviour, IInteractable
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if(Physics2D.OverlapCircle(targetPos, 0.2f, solidBGLayer | interactableLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidBGLayer | interactableLayer) != null)
         {
             return false;
         }
@@ -99,35 +109,52 @@ public class Player : MonoBehaviour, IInteractable
 
     private void ChangeScene()
     {
-        if(Physics2D.OverlapCircle(transform.position, 0.01f, mine1Layer) != null)
+        if (Physics2D.OverlapCircle(transform.position, 0.01f, mine1Layer) != null)
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Mine Vampire");
         }
-        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine2Layer) != null)
+        else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine2Layer) != null)
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Mine 2");
         }
-        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine3Layer) != null)
+        else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine3Layer) != null)
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Mine 3");
         }
-        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine4Layer) != null)
+        else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine4Layer) != null)
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Mine 4");
         }
-        else if(Physics2D.OverlapCircle(transform.position, 0.01f, mine5Layer) != null)
+        else if (Physics2D.OverlapCircle(transform.position, 0.01f, mine5Layer) != null)
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Mine 5");
         }
-        else if(Physics2D.OverlapCircle(transform.position, 0.01f, houseLayer) != null)
+        else if (Physics2D.OverlapCircle(transform.position, 0.01f, houseLayer) != null)
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Rumah");
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHP -= damage;
+        Debug.Log($"Player menerima {damage} damage! HP tersisa: {currentHP}");
+
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player telah mati!");
+        // Tambahkan logika game over di sini
     }
 }

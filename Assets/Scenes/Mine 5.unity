@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 398444148}
   - component: {fileID: 398444147}
   - component: {fileID: 398444146}
+  - component: {fileID: 398444150}
   m_Layer: 8
   m_Name: Babi Ngepet
   m_TagString: Untagged
@@ -256,6 +257,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398444150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398444145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Babi Ngepet
+  maxHP: 125
+  currentHP: 125
+  attackDamage: 15
 --- !u!1 &507336477
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,8 +999,8 @@ GameObject:
   m_Component:
   - component: {fileID: 723327024}
   - component: {fileID: 723327023}
-  - component: {fileID: 723327022}
   - component: {fileID: 723327025}
+  - component: {fileID: 723327026}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -991,25 +1008,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &723327022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723327021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3841b6d4ad0cfbf44bc587b8ebd24658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  solidBGLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!212 &723327023
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1097,6 +1095,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &723327026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723327021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e13015ca6d9824486502ff7b1fbe54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  solidBGLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  mine1Layer:
+    serializedVersion: 2
+    m_Bits: 512
+  mine2Layer:
+    serializedVersion: 2
+    m_Bits: 1024
+  mine3Layer:
+    serializedVersion: 2
+    m_Bits: 2048
+  mine4Layer:
+    serializedVersion: 2
+    m_Bits: 4096
+  mine5Layer:
+    serializedVersion: 2
+    m_Bits: 8192
+  houseLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  maxHP: 1000
+  currentHP: 0
 --- !u!1 &790518189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1192,7 @@ GameObject:
   - component: {fileID: 1281357275}
   - component: {fileID: 1281357274}
   - component: {fileID: 1281357273}
+  - component: {fileID: 1281357277}
   m_Layer: 8
   m_Name: Dragon
   m_TagString: Untagged
@@ -1276,6 +1314,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281357277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281357272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Dragon
+  maxHP: 200
+  currentHP: 200
+  attackDamage: 30
+--- !u!1 &1432701731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432701732}
+  m_Layer: 0
+  m_Name: DialogBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432701732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432701731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1950140618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1373,7 @@ GameObject:
   - component: {fileID: 1950140621}
   - component: {fileID: 1950140620}
   - component: {fileID: 1950140619}
+  - component: {fileID: 1950140623}
   m_Layer: 8
   m_Name: Demon
   m_TagString: Untagged
@@ -1409,6 +1495,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1950140623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950140618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f521a8d750a8ba41be13d30034b37d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterName: Demon
+  maxHP: 175
+  currentHP: 175
+  attackDamage: 20
 --- !u!1 &2100341989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,3 +2479,64 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2138935400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138935402}
+  - component: {fileID: 2138935401}
+  - component: {fileID: 2138935403}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2138935401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138935400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fc9a9d46c8bfd48a701f02f3b7afe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 723327026}
+--- !u!4 &2138935402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138935400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138935403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138935400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca3e5c2a42a2c047a3545290abcd203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 0}
+  dialogText: {fileID: 0}
+  letterPerSecond: 0

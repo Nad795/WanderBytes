@@ -6,7 +6,7 @@ public enum State { FreeRoam, Dialog, Battle }
 public class Main : MonoBehaviour
 {
     [SerializeField] Player player;
-    
+
     State state;
 
     private void Start()
@@ -18,7 +18,7 @@ public class Main : MonoBehaviour
 
         DialogManager.Instance.OnHideDialog += () =>
         {
-            if(state == State.Dialog)
+            if (state == State.Dialog)
             {
                 state = State.FreeRoam;
             }
@@ -27,16 +27,16 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
-        if(state == State.FreeRoam)
+        if (state == State.FreeRoam)
         {
             player.HandleUpdate();
 
         }
-        else if(state == State.Dialog)
+        else if (state == State.Dialog)
         {
             DialogManager.Instance.HandleUpdate();
         }
-        else if(state == State.Battle)
+        else if (state == State.Battle)
         {
 
         }
