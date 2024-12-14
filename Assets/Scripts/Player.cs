@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, IInteractable
     public LayerMask mine4Layer;
     public LayerMask mine5Layer;
     public LayerMask houseLayer;
+    public LayerMask outdoorLayer;
 
     public int maxHP = 500; 
     public int currentHP; 
@@ -138,6 +139,11 @@ public class Player : MonoBehaviour, IInteractable
         {
             Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Rumah");
+        }
+        else if (Physics2D.OverlapCircle(transform.position, 0.01f, outdoorLayer) != null)
+        {
+            Debug.Log("PINDAH RUANGAN WOY!!!");
+            SceneManager.LoadScene("Outdoor");
         }
     }
 
