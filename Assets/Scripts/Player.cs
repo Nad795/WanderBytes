@@ -73,37 +73,33 @@ public class Player : MonoBehaviour, IInteractable
 
         Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
 
-        var collider = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
-        if (collider != null)
+        var colliderMonster = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
+        // Cek apakah collider adalah Monster
+        Monster monster = colliderMonster.GetComponent<Monster>();
+        if (monster != null)
         {
-            // Cek apakah collider adalah Monster
-            Monster monster = collider.GetComponent<Monster>();
-            if (monster != null)
-            {
-                int playerAttackDamage = 50;
-                Debug.Log($"Player menyerang {monster.monsterName} dengan {playerAttackDamage} damage!");
-                monster.TakeDamage(playerAttackDamage);
+            int playerAttackDamage = 50;
+            Debug.Log($"Player menyerang {monster.monsterName} dengan {playerAttackDamage} damage!");
+            monster.TakeDamage(playerAttackDamage);
 
-                monster.Attack(this);
-            }
-            else
-            {
-                // Cek apakah collider adalah Bed (kasur)
-                Bed bed = collider.GetComponent<Bed>();
-                if (bed != null)
-                {
-                    Debug.Log("Player sedang beristirahat di kasur!");
-                    bed.Interact();
-                }
-                else
-                {
-                    Debug.Log("Tidak ada objek yang bisa diinteraksi.");
-                }
-            }
+            monster.Attack(this);
         }
-        else
+
+        var colliderBed = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
+        // Cek apakah collider adalah Monster
+        Bed bed = colliderBed.GetComponent<Bed>();
+        if (bed != null)
         {
-            Debug.Log("Tidak ada objek di depan player.");
+            Debug.Log("Player sedang beristirahat di kasur!");
+            bed.Interact();
+        }
+        
+        var colliderNPC = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
+        // Cek apakah collider adalah Monster
+        NPC npc = colliderNPC.GetComponent<NPC>();
+        if (npc != null)
+        {
+            npc.Interact();
         }
     }
 
