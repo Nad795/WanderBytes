@@ -20,9 +20,6 @@ public class Player : MonoBehaviour, IInteractable
     public LayerMask houseLayer;
     public LayerMask outdoorLayer;
 
-    public int maxHP = 500; 
-    public int currentHP; 
-
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -30,7 +27,7 @@ public class Player : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        currentHP = maxHP; 
+        
     }
 
     public void HandleUpdate()
@@ -172,10 +169,10 @@ public class Player : MonoBehaviour, IInteractable
 
     public void TakeDamage(int damage)
     {
-        currentHP -= damage;
-        Debug.Log($"Player menerima {damage} damage! HP tersisa: {currentHP}");
+        Wanderbytes.GameState.Instance.currentHP -= damage;
+        Debug.Log($"Player menerima {damage} damage! HP tersisa: {Wanderbytes.GameState.Instance.currentHP}");
 
-        if (currentHP <= 0)
+        if (Wanderbytes.GameState.Instance.currentHP <= 0)
         {
             Die();
         }
@@ -189,7 +186,7 @@ public class Player : MonoBehaviour, IInteractable
 
     public void ResetHP()
     {
-        currentHP = maxHP; 
+        Wanderbytes.GameState.Instance.currentHP = Wanderbytes.GameState.Instance.maxHP; 
         Debug.Log("Player telah beristirahat dan HP telah dipulihkan!");
     }
 }

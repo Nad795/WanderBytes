@@ -11,6 +11,9 @@ namespace Wanderbytes
         public Dictionary<string, bool> mineStatus = new Dictionary<string, bool>();
         public List<string> completed = new List<string>();
 
+        public int maxHP = 500;
+        public int currentHP;
+
         private void Awake()
         {
             if (Instance != null)
@@ -27,6 +30,8 @@ namespace Wanderbytes
             mineStatus.Add("Mine Babi Ngepet", false);
             mineStatus.Add("Mine Demon", false);
             mineStatus.Add("Mine Boss", false);
+
+            currentHP = maxHP;
         }
 
         public bool IsMineCompleted(string mineName)
