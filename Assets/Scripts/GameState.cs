@@ -9,6 +9,7 @@ namespace Wanderbytes
         public static GameState Instance;
 
         public Dictionary<string, bool> mineStatus = new Dictionary<string, bool>();
+        public List<string> completed = new List<string>();
 
         private void Awake()
         {
@@ -30,7 +31,7 @@ namespace Wanderbytes
 
         public bool IsMineCompleted(string mineName)
         {
-            bool status = mineStatus.ContainsKey(mineName) && mineStatus[mineName];
+            bool status = mineStatus[mineName];
             Debug.Log($"Cek status mine '{mineName}': {status}");
             return status;
         }
@@ -39,8 +40,12 @@ namespace Wanderbytes
         {
             if (mineStatus.ContainsKey(mineName))
             {
-                mineStatus[mineName] = true;
-                Debug.Log($"Mine {mineName} telah selesai!");
+                if(!mineStatus[mineName])
+                {
+                    mineStatus[mineName] = true;
+                    completed.Add(mineName);
+                    Debug.Log($"Mine {mineName} telah selesai!");
+                }
             }
         }
     }

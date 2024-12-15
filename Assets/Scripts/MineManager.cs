@@ -31,7 +31,15 @@ public class MineManager : MonoBehaviour
         // Tandai mine ini sebagai selesai menggunakan GameState.Instance
         if (Wanderbytes.GameState.Instance != null)
         {
-            Wanderbytes.GameState.Instance.CompleteMine(mineName);
+            if (Wanderbytes.GameState.Instance.mineStatus.ContainsKey(mineName))
+            {
+                Wanderbytes.GameState.Instance.CompleteMine(mineName);
+                Debug.Log($"[DEBUG] Mine {mineName} berhasil ditandai sebagai selesai!");
+            }
+            else
+            {
+                Debug.LogWarning($"[WARNING] Nama mine {mineName} tidak ditemukan di GameState.");
+            }
         }
 
         Debug.Log($"Semua monster di {mineName} telah dikalahkan!");
