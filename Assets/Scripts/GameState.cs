@@ -23,10 +23,10 @@ namespace Wanderbytes
             DontDestroyOnLoad(gameObject);
 
             mineStatus.Add("Mine Vampire", false);
-            mineStatus.Add("Mine 2", false);
-            mineStatus.Add("Mine 3", false);
-            mineStatus.Add("Mine 4", false);
-            mineStatus.Add("Mine 5", false);
+            mineStatus.Add("Mine Dragon", false);
+            mineStatus.Add("Mine Babi Ngepet", false);
+            mineStatus.Add("Mine Demon", false);
+            mineStatus.Add("Mine Boss", false);
         }
 
         public bool IsMineCompleted(string mineName)

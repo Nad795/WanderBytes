@@ -133,10 +133,10 @@ public class Player : MonoBehaviour, IInteractable
         var mines = new Dictionary<LayerMask, string>
         {
             {mine1Layer, "Mine Vampire"},
-            {mine2Layer, "Mine 2"},
-            {mine3Layer, "Mine 3"},
-            {mine4Layer, "Mine 4"},
-            {mine5Layer, "Mine 5"}
+            {mine2Layer, "Mine Dragon"},
+            {mine3Layer, "Mine Babi Ngepet"},
+            {mine4Layer, "Mine Demon"},
+            {mine5Layer, "Mine Boss"}
         };
 
         foreach (var mine in mines)

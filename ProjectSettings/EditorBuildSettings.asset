@@ -15,16 +15,16 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2b9dca35211ce3b4cb948da113247e45
   - enabled: 1
-    path: Assets/Scenes/Mine 2.unity
+    path: Assets/Scenes/Mine Dragon.unity
     guid: 48658155673148b4c8a99f65544ce3bc
   - enabled: 1
-    path: Assets/Scenes/Mine 3.unity
+    path: Assets/Scenes/Mine Babi Ngepet.unity
     guid: 22a645c5375f65543afe5609db0c5655
   - enabled: 1
-    path: Assets/Scenes/Mine 4.unity
+    path: Assets/Scenes/Mine Demon.unity
     guid: 8762f8be1d201334296ee72ff93feea4
   - enabled: 1
-    path: Assets/Scenes/Mine 5.unity
+    path: Assets/Scenes/Mine Boss.unity
     guid: 12108f43cf12c144c9abd46533f20e1d
   - enabled: 1
     path: Assets/Scenes/Mine Vampire.unity
