@@ -50,6 +50,12 @@ namespace Wanderbytes
                     mineStatus[mineName] = true;
                     completed.Add(mineName);
                     Debug.Log($"Mine {mineName} telah selesai!");
+
+                    if (completed.Count >= 5)
+                    {
+                        Debug.Log("Semua mine telah selesai! Pindah ke scene Win.");
+                        SceneManager.LoadScene("Win"); 
+                    }
                 }
             }
         }

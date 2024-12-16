@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rumah.unity
     guid: e07d96c751134b34fb782eeb95e63b91
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 1a53defdf73361249a730b82a14502dd
   m_configObjects: {}
