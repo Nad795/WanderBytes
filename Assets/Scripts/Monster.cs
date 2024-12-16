@@ -9,9 +9,12 @@ public class Monster : MonoBehaviour, IInteractable
     public int currentHP;
     public int attackDamage; 
 
+    AudioManager audioManager;
+
     private void Start()
     {
         currentHP = maxHP; 
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void Interact()
@@ -34,6 +37,7 @@ public class Monster : MonoBehaviour, IInteractable
 
     public void TakeDamage(int damage)
     {
+        audioManager.PlaySFX(audioManager.attack);
         currentHP -= damage;
         Debug.Log($"{monsterName} menerima {damage} damage! HP tersisa: {currentHP}");
 
@@ -45,6 +49,7 @@ public class Monster : MonoBehaviour, IInteractable
 
     private void Die()
     {
+        audioManager.PlaySFX(audioManager.monsterDie);
         Debug.Log($"{monsterName} telah mati!");
         Destroy(gameObject);
 

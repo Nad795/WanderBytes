@@ -20,6 +20,8 @@ public class Player : MonoBehaviour, IInteractable
     public LayerMask houseLayer;
     public LayerMask outdoorLayer;
 
+    AudioManager audioManager;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void HandleUpdate()
@@ -180,6 +182,7 @@ public class Player : MonoBehaviour, IInteractable
 
     private void Die()
     {
+        audioManager.PlaySFX(audioManager.playerDie);
         Debug.Log("Player telah mati!");
         // Tambahkan logika game over di sini
     }
