@@ -13,8 +13,18 @@ public class Monster : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        currentHP = maxHP; 
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        currentHP = maxHP;
+        GameObject audioObject = GameObject.FindGameObjectWithTag("Audio");
+        if (audioObject != null)
+        {
+            audioManager = audioObject.GetComponent<AudioManager>();
+            if (audioManager == null)
+                Debug.LogError("Komponen AudioManager tidak ditemukan pada GameObject dengan tag 'Audio'!");
+        }
+        else
+        {
+            Debug.LogError("GameObject dengan tag 'Audio' tidak ditemukan di scene!");
+        }
     }
 
     public void Interact()
@@ -37,13 +47,13 @@ public class Monster : MonoBehaviour, IInteractable
 
     public void TakeDamage(int damage)
     {
+        currentHP -= damage; // Kurangi HP monster
         audioManager.PlaySFX(audioManager.attack);
-        currentHP -= damage;
         Debug.Log($"{monsterName} menerima {damage} damage! HP tersisa: {currentHP}");
 
         if (currentHP <= 0)
         {
-            Die();
+            Die(); // Panggil fungsi Die jika HP monster habis
         }
     }
 

@@ -60,5 +60,21 @@ namespace Wanderbytes
                 }
             }
         }
+
+        public void ResetGame()
+        {
+            currentHP = maxHP;
+            completed.Clear();
+            mineStatus["Mine Vampire"] = false;
+            mineStatus["Mine Dragon"] = false;
+            mineStatus["Mine Babi Ngepet"] = false;
+            mineStatus["Mine Demon"] = false;
+            mineStatus["Mine Boss"] = false;
+
+            Debug.Log($"GameState direset: HP = {currentHP}/{maxHP}, progres dihapus.");
+
+            Debug.Log("Scene MainMenu akan dipanggil...");
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
