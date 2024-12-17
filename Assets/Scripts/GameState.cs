@@ -55,7 +55,6 @@ namespace Wanderbytes
             Debug.Log($"GameState direset: HP = {currentHP}/{maxHP}, progres dihapus.");
 
             Debug.Log("Scene MainMenu akan dipanggil...");
-            SceneManager.LoadScene("MainMenu");
         }
 
         public void CompleteMine(string mineName)
@@ -72,7 +71,7 @@ namespace Wanderbytes
                     {
                         Debug.Log("Semua mine telah selesai! Pindah ke scene Win.");
                         SceneManager.LoadScene("Win");
-                        Wanderbytes.GameState.Instance.ResetGame();
+                        ResetGame();
                     }
                 }
             }
