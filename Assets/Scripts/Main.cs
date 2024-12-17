@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum State { FreeRoam, Dialog, Battle }
+public enum State { FreeRoam, Dialog }
 public class Main : MonoBehaviour
 {
     [SerializeField] Player player;
@@ -35,10 +35,6 @@ public class Main : MonoBehaviour
         else if (state == State.Dialog)
         {
             DialogManager.Instance.HandleUpdate();
-        }
-        else if (state == State.Battle)
-        {
-
         }
     }
 }

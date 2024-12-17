@@ -47,9 +47,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
-        if (clip != null)
-        {
-            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
-        }
+        SFXSource.PlayOneShot(clip); 
     }
 }

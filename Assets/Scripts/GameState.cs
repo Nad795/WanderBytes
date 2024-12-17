@@ -38,7 +38,6 @@ namespace Wanderbytes
         public bool IsMineCompleted(string mineName)
         {
             bool status = mineStatus[mineName];
-            Debug.Log($"Cek status mine '{mineName}': {status}");
             return status;
         }
 
@@ -51,10 +50,6 @@ namespace Wanderbytes
             mineStatus["Mine Babi Ngepet"] = false;
             mineStatus["Mine Demon"] = false;
             mineStatus["Mine Boss"] = false;
-
-            Debug.Log($"GameState direset: HP = {currentHP}/{maxHP}, progres dihapus.");
-
-            Debug.Log("Scene MainMenu akan dipanggil...");
         }
 
         public void CompleteMine(string mineName)
@@ -65,11 +60,9 @@ namespace Wanderbytes
                 {
                     mineStatus[mineName] = true;
                     completed.Add(mineName);
-                    Debug.Log($"Mine {mineName} telah selesai!");
 
                     if (completed.Count >= 5)
                     {
-                        Debug.Log("Semua mine telah selesai! Pindah ke scene Win.");
                         SceneManager.LoadScene("Win");
                         ResetGame();
                     }

@@ -18,12 +18,6 @@ public class Monster : MonoBehaviour, IInteractable
         if (audioObject != null)
         {
             audioManager = audioObject.GetComponent<AudioManager>();
-            if (audioManager == null)
-                Debug.LogError("Komponen AudioManager tidak ditemukan pada GameObject dengan tag 'Audio'!");
-        }
-        else
-        {
-            Debug.LogError("GameObject dengan tag 'Audio' tidak ditemukan di scene!");
         }
     }
 
@@ -41,26 +35,23 @@ public class Monster : MonoBehaviour, IInteractable
 
     public void Attack(Player player)
     {
-        Debug.Log($"{monsterName} menyerang Player dengan {attackDamage} damage!");
         player.TakeDamage(attackDamage);
     }
 
     public void TakeDamage(int damage)
     {
-        currentHP -= damage; // Kurangi HP monster
+        currentHP -= damage;
         audioManager.PlaySFX(audioManager.attack);
-        Debug.Log($"{monsterName} menerima {damage} damage! HP tersisa: {currentHP}");
 
         if (currentHP <= 0)
         {
-            Die(); // Panggil fungsi Die jika HP monster habis
+            Die();
         }
     }
 
     private void Die()
     {
         audioManager.PlaySFX(audioManager.monsterDie);
-        Debug.Log($"{monsterName} telah mati!");
         Destroy(gameObject);
 
         MineManager mineManager = FindObjectOfType<MineManager>();

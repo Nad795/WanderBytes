@@ -70,31 +70,24 @@ public class Player : MonoBehaviour, IInteractable
         var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
         var interactPos = transform.position + facingDir;
 
-        Debug.DrawLine(transform.position, interactPos, Color.red, 1f);
-
         var colliderMonster = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
-        // Cek apakah collider adalah Monster
         Monster monster = colliderMonster.GetComponent<Monster>();
         if (monster != null)
         {
             int playerAttackDamage = 50;
-            Debug.Log($"Player menyerang {monster.monsterName} dengan {playerAttackDamage} damage!");
             monster.TakeDamage(playerAttackDamage);
 
             monster.Attack(this);
         }
 
         var colliderBed = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
-        // Cek apakah collider adalah Monster
         Bed bed = colliderBed.GetComponent<Bed>();
         if (bed != null)
         {
-            Debug.Log("Player sedang beristirahat di kasur!");
             bed.Interact();
         }
         
         var colliderNPC = Physics2D.OverlapCircle(interactPos, 0.2f, interactableLayer);
-        // Cek apakah collider adalah Monster
         NPC npc = colliderNPC.GetComponent<NPC>();
         if (npc != null)
         {
@@ -146,12 +139,7 @@ public class Player : MonoBehaviour, IInteractable
 
                 if (!Wanderbytes.GameState.Instance.completed.Contains(mineName))
                 {
-                    Debug.Log($"Memasuki {mineName}...");
                     SceneManager.LoadScene(mineName);
-                }
-                else
-                {
-                    Debug.Log($"{mineName} sudah selesai, Anda tidak bisa masuk lagi.");
                 }
                 return;
             }
@@ -159,12 +147,10 @@ public class Player : MonoBehaviour, IInteractable
 
         if (Physics2D.OverlapCircle(transform.position, 0.01f, houseLayer) != null)
         {
-            Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Rumah");
         }
         else if (Physics2D.OverlapCircle(transform.position, 0.01f, outdoorLayer) != null)
         {
-            Debug.Log("PINDAH RUANGAN WOY!!!");
             SceneManager.LoadScene("Outdoor");
         }
     }
@@ -172,7 +158,6 @@ public class Player : MonoBehaviour, IInteractable
     public void TakeDamage(int damage)
     {
         Wanderbytes.GameState.Instance.currentHP -= damage;
-        Debug.Log($"Player menerima {damage} damage! HP tersisa: {Wanderbytes.GameState.Instance.currentHP}");
 
         if (Wanderbytes.GameState.Instance.currentHP <= 0)
         {
@@ -183,7 +168,6 @@ public class Player : MonoBehaviour, IInteractable
     private void Die()
     {
         audioManager.PlaySFX(audioManager.playerDie);
-        Debug.Log("Player telah mati!");
         SceneManager.LoadScene("GameOver");
         Wanderbytes.GameState.Instance.ResetGame();
     }
@@ -191,6 +175,5 @@ public class Player : MonoBehaviour, IInteractable
     public void ResetHP()
     {
         Wanderbytes.GameState.Instance.currentHP = Wanderbytes.GameState.Instance.maxHP; 
-        Debug.Log("Player telah beristirahat dan HP telah dipulihkan!");
     }
 }
