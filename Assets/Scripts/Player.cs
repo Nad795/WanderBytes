@@ -185,6 +185,7 @@ public class Player : MonoBehaviour, IInteractable
         audioManager.PlaySFX(audioManager.playerDie);
         Debug.Log("Player telah mati!");
         SceneManager.LoadScene("GameOver");
+        Wanderbytes.GameState.Instance.ResetGame();
     }
 
     public void ResetHP()
